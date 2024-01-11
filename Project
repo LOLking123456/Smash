@@ -124,6 +124,15 @@ for _, v in pairs(game.Workspace:GetDescendants()) do
 end
 end)
 
+Section:NewKeybind("Teleport To Safe Spot", "Safe Spot", Enum.KeyCode.F, function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-511.978424, -5.10123444, 33.7973976, 0.857158303, -6.67801592e-09, -0.515053034, 7.0764794e-09, 1, -1.18891219e-09, 0.515053034, -2.62567634e-09, 0.857158303)
+end)
+
+
+Section:NewButton("Mobile Keyboard", "Mobile Players", function(state)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/advxzivhsjjdhxhsidifvsh/mobkeyboard/main/main.txt", true))()
+end)
+
 
 Section:NewButton("CFrame Speed (Z)", "CFrame Speed (Press Z)", function()
  repeat
@@ -172,14 +181,7 @@ Section:NewButton("CFrame Speed (Z)", "CFrame Speed (Press Z)", function()
 	end)
 end)
 
-Section:NewKeybind("Teleport To Safe Spot", "Safe Spot", Enum.KeyCode.F, function()
-	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-511.978424, -5.10123444, 33.7973976, 0.857158303, -6.67801592e-09, -0.515053034, 7.0764794e-09, 1, -1.18891219e-09, 0.515053034, -2.62567634e-09, 0.857158303)
-end)
 
-
-Section:NewButton("Mobile Keyboard", "Mobile Players", function(state)
-loadstring(game:HttpGet("https://raw.githubusercontent.com/advxzivhsjjdhxhsidifvsh/mobkeyboard/main/main.txt", true))()
-end)
 
 
 Section:NewSlider("CFrame Speed", "CFrame Speed", 5, 0, function(s) -- 500 (MaxValue) | 0 (MinValue)
