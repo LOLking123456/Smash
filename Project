@@ -80,6 +80,20 @@ end)
 end
 end)
 
+Section:NewToggle("Auto Attack", "Auto Attack", function(Value)
+a = Value
+        while a do task.wait()
+        pcall(function()
+local args = {
+    [1] = true,
+    [2] = 1705001465.463267
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("game"):WaitForChild("action"):WaitForChild("mouse1"):FireServer(unpack(args))
+
+end)
+end
+end)
 
 Section:NewToggle("Enable Player Hitbox", "Enable Player Hitbox", function(Value)
 a = Value
