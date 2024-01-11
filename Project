@@ -37,7 +37,7 @@ local char_root = char:FindFirstChild("HumanoidRootPart")
     local target_root
     local target_hum
 
-    for i, v in pairs(workspace.Live:GetDescendants()) do
+    for i, v in pairs(workspace.Living:GetDescendants()) do
         local root = v:FindFirstChild("HumanoidRootPart")
         local hum = v:FindFirstChild("Humanoid")
 
@@ -80,41 +80,34 @@ end)
 end
 end)
 
-Section:NewToggle("Hitbox", "Loop Hitbox", function(Value)
- a = Value
-        while a do task.wait()
+
+Section:NewToggle("Enable Player Hitbox", "Enable Player Hitbox", function(Value)
+a = Value
+        while a do task.wait(2)
         pcall(function()
-
-      for i, v in pairs(game.Players:GetPlayers()) do
-            if v.Name ~= game.Players.LocalPlayer.Name then
-            pcall(function()
-
-                v.Character.Hitbox.Main.Size = Vector3.new(50,50,50)
-                v.Character.Hitbox.Main.Transparency = 0.7
-                 v.Character.Hitbox.Main.Material = "Neon"
-             v.Character.Hitbox.Main.BrickColor = BrickColor.new("Really white")
-                v.Character.Hitbox.Main.CanCollide = false
-            end)
-        end
+for _, v in pairs(game.Workspace:GetDescendants()) do
+    if v.Name == "HumanoidRootPart" and v:IsA("Part") and v.Parent ~= game.Players.LocalPlayer.Character then
+        v.Size = Vector3.new(25, 25, 25)
+        v.Transparency = 0.8
+        v.Material = "Neon"
+        v.BrickColor = BrickColor.new("Really red")
+        v.CanCollide = false
     end
-  end)
-             end
-
+end
 end)
+end
+    end)
 
 Section:NewSlider("Hitbox Size", "Size Hitbox", 200, 2, function(s) 
- for i, v in pairs(game.Players:GetPlayers()) do
-            if v.Name ~= game.Players.LocalPlayer.Name then
-            pcall(function()
-
-                v.Character.Hitbox.Main.Size = Vector3.new((s),(s),(s))
-                v.Character.Hitbox.Main.Transparency = 0.7
-                 v.Character.Hitbox.Main.Material = "Neon"
-             v.Character.Hitbox.Main.BrickColor = BrickColor.new("Really blue")
-                v.Character.Hitbox.Main.CanCollide = false
-            end)
-        end
+for _, v in pairs(game.Workspace:GetDescendants()) do
+    if v.Name == "HumanoidRootPart" and v:IsA("Part") and v.Parent ~= game.Players.LocalPlayer.Character then
+        v.Size = Vector3.new((s),(s),(s))
+        v.Transparency = 0.8
+        v.Material = "Neon"
+        v.BrickColor = BrickColor.new("Really red")
+        v.CanCollide = false
     end
+end
 end)
 
 
