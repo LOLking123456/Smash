@@ -1,6 +1,6 @@
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
 
-local Window = Library.CreateLib("BIG Paintball 2! 💥 | Legend HandlesYT", "Ocean")
+local Window = Library.CreateLib("Project Smash | Legend HandlesYT", "Ocean")
 
 
 local Tab = Window:NewTab("Main-Features")
@@ -44,7 +44,7 @@ local char_root = char:FindFirstChild("HumanoidRootPart")
         if root and hum and v ~= char then
             local mag = (char_root.Position - root.Position).magnitude
 
-            if mag < 50 and mag < nearest_hum then
+            if mag < 20 and mag < nearest_hum then
 
                 local obstructed = false
 
@@ -70,7 +70,7 @@ local char_root = char:FindFirstChild("HumanoidRootPart")
     if target_root and target_hum then
         nearest_hum = math.huge
 
-        local behind = (target_root.CFrame *  CFrame.new(0,7,0)).p -- the behind lol
+        local behind = (target_root.CFrame *  CFrame.new(0,0,2)).p -- the behind lol
 
         char_root.CFrame = CFrame.new(behind)
 
@@ -98,7 +98,7 @@ end)
 end
     end)
 
-Section:NewSlider("Hitbox Size", "Size Hitbox", 200, 2, function(s) 
+Section:NewSlider("Player Hitbox Size", "Size Hitbox", 200, 2, function(s) 
 for _, v in pairs(game.Workspace:GetDescendants()) do
     if v.Name == "HumanoidRootPart" and v:IsA("Part") and v.Parent ~= game.Players.LocalPlayer.Character then
         v.Size = Vector3.new((s),(s),(s))
@@ -158,6 +158,16 @@ Section:NewButton("CFrame Speed (Z)", "CFrame Speed (Press Z)", function()
 	end)
 end)
 
+Section:NewKeybind("Teleport To Safe Spot", "Safe Spot", Enum.KeyCode.F, function()
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-511.978424, -5.10123444, 33.7973976, 0.857158303, -6.67801592e-09, -0.515053034, 7.0764794e-09, 1, -1.18891219e-09, 0.515053034, -2.62567634e-09, 0.857158303)
+end)
+
+
+Section:NewButton("Mobile Keyboard", "Mobile Players", function(state)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/advxzivhsjjdhxhsidifvsh/mobkeyboard/main/main.txt", true))()
+end)
+
+
 Section:NewSlider("CFrame Speed", "CFrame Speed", 5, 0, function(s) -- 500 (MaxValue) | 0 (MinValue)
  getgenv().Multiplier = s
 end)
@@ -188,24 +198,8 @@ _G.infinjump = true
 end
 end
             end)
-Section:NewButton("FPS Booster", "FPS Booster", function()
-
-     for _,v in pairs(workspace:GetDescendants()) do
-if v.ClassName == "Part"
-or v.ClassName == "SpawnLocation"
-or v.ClassName == "WedgePart"
-or v.ClassName == "Terrain"
-or v.ClassName == "MeshPart" then
-v.Material = "Plastic"
-end
-end
-end)
 
 
-
-Section:NewSlider("FOV", "Field Of Views", 120, 70, function(s) -- 500 (MaxValue) | 0 (MinValue)
-game:GetService'Workspace'.Camera.FieldOfView = (s)
-end)
 
 CredSection:NewLabel("Made By Legend HandlesYT")
 
